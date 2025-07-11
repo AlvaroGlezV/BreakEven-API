@@ -2,10 +2,6 @@ from flask import Flask, request, jsonify
 import os
 
 app = Flask(__name__)
-app.run(host="0.0.0.0", port=port)
-port = int(os.environ.get("PORT", 5000))
-
-app = Flask(__name__)
 
 @app.route('/maxprice', methods=['POST'])
 def calculate_max_price():
@@ -47,4 +43,5 @@ def calculate_max_price():
     })
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
